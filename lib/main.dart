@@ -62,6 +62,7 @@ class MyHomePage extends StatelessWidget {
       body: ValueListenableBuilder(
         valueListenable: ContactBook(),
         builder: (contact, value, child) {
+          // ignore: unnecessary_cast
           final contacts = value as List<Contact>;
           return ListView.builder(
             itemCount: contacts.length,
@@ -86,7 +87,7 @@ class MyHomePage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          await Navigator.of(context).pushNamed('/new-Contact');
+          await Navigator.of(context).pushNamed('/new-contact');
         },
         child: const Icon(Icons.add),
       ),
